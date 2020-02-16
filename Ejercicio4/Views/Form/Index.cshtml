@@ -1,0 +1,49 @@
+﻿@model Operation
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center">
+    <h1>Calculadora</h1>
+</div>
+
+<form asp-action="Index" method="post" asp-controller"Form">
+    <div class="form-group">
+
+        <div class="text-center">
+            <div class="input-group-prepend">
+                <span asp-for="PrimerNumero" id="basic-addon1" class="input-group-text">Primer numero</span>
+                <input type="number" asp-for="PrimerNumero" class="form-control" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <br />
+        <div class="text-center">
+            <div class="input-group-prepend">
+                <span asp-for="SegundoNumero" class="input-group-text"> Segundo numero</span>
+                <input type="number" asp-for="SegundoNumero" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="text-center">
+            <div class="input-group-prepend">
+                <span asp-for="OperationType" class="input-group-text"> Operacion</span>
+                <select asp-for="OperationType" class="form-control" asp-items="Html.GetEnumSelectList<OperationType>()">
+                    <option value="" selected="selected">Selecciona</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="text-center">
+            <div class="input-group-prepend">
+                <span asp-for="Resultado" class="input-group-text">Resultado</span>
+                <input type="number" disabled="disabled" class="form-control" asp-for="Resultado" />
+            </div>
+        </div>
+
+        <br />
+
+        <div class="text-center">
+            <input type="submit" value="Submit" asp-action="Index" class="btn btn-dark" />
+        </div>
+
+    </div>
+</form>
